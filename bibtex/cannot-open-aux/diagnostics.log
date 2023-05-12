@@ -1,0 +1,476 @@
+Rc files read:
+  /Users/zepinglee/.latexmkrc
+Latexmk: This is Latexmk, John Collins, 4 Apr. 2023. Version 4.80.
+Latexmk: Changing directory to 'bibtex/cannot-open-aux/'
+Set environment variable BIBINPUTS='.:'
+Set environment variable TEXINPUTS='.:'
+Latexmk: Cwd: '/Users/zepinglee/Developer/csl/latexmk/bibtex/cannot-open-aux'
+Latexmk: Normalized aux dir and out dir: '.', '.'
+Latexmk: and combining forms: '', ''
+Given='main.tex', tex='main.tex', base='main', ext= .tex
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  NONE
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Latexmk: Rules after start up for 'main.tex'
+===Rules:
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 1 'main.tex' 'main.pdf' 'main' 0 0
+    'main.aux': 0 -1 0 'pdflatex'
+    'main.tex': 0 -1 0 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Latexmk: Examining fdb file 'main.fdb_latexmk' for cached rules ...
+Latexmk: File-database 'main.fdb_latexmk': setting rule 'bibtex main'
+  Rule kind = 'bibtex'; ext_cmd = 'bibtex %O %S';
+  int_cmd = 'run_bibtex';
+  source = 'main.aux'; dest = 'main.bbl'; base = 'main';
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  bibtex main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Force everything to be remade.
+Latexmk: Rules after initialization
+===Rules:
+  [bibtex main]: 'external' 'bibtex %O %S' 'run_bibtex' 0 'main.aux' 'main.bbl' 'main' 1 0
+    './bibfile.bib': 1684066100 1153 46d8963ede1099d4f7494dbe5c31de96 ''
+    '/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst': 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ''
+    'chapter1.aux': 1684070200 632 082844e66e2a96974b3e2167aa01d93b 'pdflatex'
+    'main.aux': 1684070200 128 d9b8e1618ce2b38600be723bfe9e9034 'pdflatex'
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 0 'main.tex' 'main.pdf' 'main' 1 0
+    '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map': 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm': 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm': 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm': 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb': 1248133631 32080 340ef9bf63678554ee606688e7b5339d ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb': 1248133631 35752 024fb6c41858982481f6968b5fc26508 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb': 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls': 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo': 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def': 1681935207 29940 9473d58112bc8a88f5505b823a053dde ''
+    '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf': 1681165822 40967 d940221f8762fd5848760382d97d1226 ''
+    '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map': 1684049596 4564026 f5ae5d834c513e7f4923d5da811dae3b ''
+    '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt': 1683876814 6530462 a8acbf7961a803d3b5f468f2bcc82099 ''
+    '/usr/local/texlive/2023/texmf.cnf': 1682055209 577 1b2b1af17af2508fb20dd85783af4050 ''
+    'chapter1.aux': 1684070200 632 082844e66e2a96974b3e2167aa01d93b 'pdflatex'
+    'chapter1.tex': 1681986130 29 7e35d75008d698e6faf942f5ac9572b9 ''
+    'main.aux': 1684070200 128 d9b8e1618ce2b38600be723bfe9e9034 'pdflatex'
+    'main.bbl': 1684070199 247 c8e3a9c96db3b58b00e2e526ffb78db0 'bibtex main'
+    'main.tex': 1684067220 145 5f9a6c17b5b8493238ca3c42b89e90d7 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  bibtex main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'bibtex main'
+Latexmk: applying rule 'bibtex main'...
+Rule 'bibtex main':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex main' forced or previously required
+
+------------
+Run number 1 of rule 'bibtex main'
+------------
+For rule 'bibtex main', use internal command '&run_bibtex(  )' ...
+------------
+Running 'bibtex  "main.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2023)
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+I couldn't open auxiliary file chapter1.aux
+---line 4 of file main.aux
+ : \@input{chapter1.aux
+ :                     }
+I'm skipping whatever remains of this command
+Database file #1: bibfile.bib
+Warning--empty year in ITEM-1
+(There was 1 error message)
+Latexmk: One or more aux files is missing for bibtex. I'll try
+          to get *latex to remake them.
+  Make for rule 'pdflatex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-05-11>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./main.aux
+No file chapter1.aux.
+) [1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./chapter1.tex
+Chapter 1.
+) [2] (./main.bbl) [3] (./main.aux (./chapter1.aux)) )</usr/local/texlive/2023/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (3 pages, 41463 bytes).
+SyncTeX written on main.synctex.gz.
+Transcript written on main.log.
+Latexmk: Getting log file 'main.log'
+====Continuing line 77 of length 79
+1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1
+====Continuing line 78 of length 79
+/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/p
+Latexmk: Examining 'main.fls'
+Latexmk: Examining 'main.log'
+Latexmk: Found input bbl file 'main.bbl'
+Latexmk: Log file says output to 'main.pdf'
+10 dependent files detected, of which 10 exist, 0 were not found,
+   and 0 appear not to exist.
+Dependents:
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def' 
+   'chapter1.aux'  written by *latex
+   'chapter1.tex' 
+   'main.aux'  written by *latex
+   'main.bbl' 
+   'main.tex' 
+Input bbl files:
+  main.bbl
+Possible input files, perhaps from misunderstood lines in .log file:
+  max.
+  max. 10000000
+  max. 500000
+  max. 8388607
+=======  Dealing with 'bibtex main'
+Latexmk.kpsewhich: Running 'kpsewhich -format=bib bibfile.bib'...
+Latexmk.kpsewhich: 'kpsewhich -format=bib bibfile.bib' ==>
+  ./bibfile.bib
+Latexmk.kpsewhich: Running 'kpsewhich -format=bst ieeetr'...
+Latexmk.kpsewhich: 'kpsewhich -format=bst ieeetr' ==>
+  /usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst
+Latexmk: Found bibliography file(s):
+  ./bibfile.bib
+  ===Source file './bibfile.bib' for 'bibtex main'
+  ===Source file 'main.aux' for 'bibtex main'
+  ===Source file 'chapter1.aux' for 'bibtex main'
+  ===Source file '/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst' for 'bibtex main'
+  ===Source file 'main.bbl' for 'pdflatex'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf.cnf'
+  ===Source file for rule 'pdflatex': 'chapter1.aux'
+  ===Source file for rule 'pdflatex': 'chapter1.tex'
+  ===Source file for rule 'pdflatex': 'main.aux'
+  ===Source file for rule 'pdflatex': 'main.bbl'
+  ===Source file for rule 'pdflatex': 'main.tex'
+No new source files for rule 'pdflatex':
+The following files were only read after being written:
+  chapter1.aux
+Latexmk: Rules after run: 
+===Rules:
+  [bibtex main]: 'external' 'bibtex %O %S' 'run_bibtex' 0 'main.aux' 'main.bbl' 'main' 0 0
+    './bibfile.bib': 1684066100 1153 46d8963ede1099d4f7494dbe5c31de96 ''
+    '/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst': 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ''
+    'chapter1.aux': 0 -1 0 'pdflatex'
+    'main.aux': 1684070200 128 d9b8e1618ce2b38600be723bfe9e9034 'pdflatex'
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 0 'main.tex' 'main.pdf' 'main' 0 0
+    '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map': 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm': 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm': 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm': 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb': 1248133631 32080 340ef9bf63678554ee606688e7b5339d ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb': 1248133631 35752 024fb6c41858982481f6968b5fc26508 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb': 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls': 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo': 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def': 1681935207 29940 9473d58112bc8a88f5505b823a053dde ''
+    '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf': 1681165822 40967 d940221f8762fd5848760382d97d1226 ''
+    '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map': 1684049596 4564026 f5ae5d834c513e7f4923d5da811dae3b ''
+    '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt': 1683876814 6530462 a8acbf7961a803d3b5f468f2bcc82099 ''
+    '/usr/local/texlive/2023/texmf.cnf': 1682055209 577 1b2b1af17af2508fb20dd85783af4050 ''
+    'chapter1.aux': 0 -1 0 'pdflatex'
+    'chapter1.tex': 1681986130 29 7e35d75008d698e6faf942f5ac9572b9 ''
+    'main.aux': 1684070200 128 d9b8e1618ce2b38600be723bfe9e9034 'pdflatex'
+    'main.bbl': 1684070216 247 c8e3a9c96db3b58b00e2e526ffb78db0 'bibtex main'
+    'main.tex': 1684067220 145 5f9a6c17b5b8493238ca3c42b89e90d7 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  bibtex main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'bibtex main'
+Latexmk: applying rule 'bibtex main'...
+Rule 'bibtex main':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter1.aux
+
+------------
+Run number 2 of rule 'bibtex main'
+------------
+For rule 'bibtex main', use internal command '&run_bibtex(  )' ...
+------------
+Running 'bibtex  "main.aux"'
+------------
+This is BibTeX, Version 0.99d (TeX Live 2023)
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+Database file #1: bibfile.bib
+Warning--empty year in ITEM-1
+(There was 1 warning)
+  Make for rule 'pdflatex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  chapter1.aux
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-05-11>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./main.aux (./chapter1.aux)) [1{/usr/local/texlive/2023/texmf-var/fonts/map/pd
+ftex/updmap/pdftex.map}] (./chapter1.tex
+Chapter 1.
+) [2] (./main.bbl) [3] (./main.aux (./chapter1.aux)) )</usr/local/texlive/2023/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (3 pages, 41463 bytes).
+SyncTeX written on main.synctex.gz.
+Transcript written on main.log.
+Latexmk: Getting log file 'main.log'
+====Continuing line 74 of length 79
+1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1
+====Continuing line 75 of length 79
+/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/p
+Latexmk: Examining 'main.fls'
+Latexmk: Examining 'main.log'
+Latexmk: Found input bbl file 'main.bbl'
+Latexmk: Log file says output to 'main.pdf'
+10 dependent files detected, of which 10 exist, 0 were not found,
+   and 0 appear not to exist.
+Dependents:
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def' 
+   'chapter1.aux'  written by *latex
+   'chapter1.tex' 
+   'main.aux'  written by *latex
+   'main.bbl' 
+   'main.tex' 
+Input bbl files:
+  main.bbl
+Possible input files, perhaps from misunderstood lines in .log file:
+  max.
+  max. 10000000
+  max. 500000
+  max. 8388607
+=======  Dealing with 'bibtex main'
+Latexmk.kpsewhich: Running 'kpsewhich -format=bib bibfile.bib'...
+Latexmk.kpsewhich: 'kpsewhich -format=bib bibfile.bib' ==>
+  ./bibfile.bib
+Latexmk.kpsewhich: Running 'kpsewhich -format=bst ieeetr'...
+Latexmk.kpsewhich: 'kpsewhich -format=bst ieeetr' ==>
+  /usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst
+Latexmk: Found bibliography file(s):
+  ./bibfile.bib
+  ===Source file './bibfile.bib' for 'bibtex main'
+  ===Source file 'main.aux' for 'bibtex main'
+  ===Source file 'chapter1.aux' for 'bibtex main'
+  ===Source file '/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst' for 'bibtex main'
+  ===Source file 'main.bbl' for 'pdflatex'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf.cnf'
+  ===Source file for rule 'pdflatex': 'chapter1.aux'
+  ===Source file for rule 'pdflatex': 'chapter1.tex'
+  ===Source file for rule 'pdflatex': 'main.aux'
+  ===Source file for rule 'pdflatex': 'main.bbl'
+  ===Source file for rule 'pdflatex': 'main.tex'
+No new source files for rule 'pdflatex':
+Latexmk: Rules after run: 
+===Rules:
+  [bibtex main]: 'external' 'bibtex %O %S' 'run_bibtex' 0 'main.aux' 'main.bbl' 'main' 0 0
+    './bibfile.bib': 1684066100 1153 46d8963ede1099d4f7494dbe5c31de96 ''
+    '/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst': 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ''
+    'chapter1.aux': 1684070217 632 082844e66e2a96974b3e2167aa01d93b 'pdflatex'
+    'main.aux': 1684070217 128 d9b8e1618ce2b38600be723bfe9e9034 'pdflatex'
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 0 'main.tex' 'main.pdf' 'main' 0 0
+    '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map': 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm': 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm': 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm': 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb': 1248133631 32080 340ef9bf63678554ee606688e7b5339d ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb': 1248133631 35752 024fb6c41858982481f6968b5fc26508 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb': 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls': 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo': 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def': 1681935207 29940 9473d58112bc8a88f5505b823a053dde ''
+    '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf': 1681165822 40967 d940221f8762fd5848760382d97d1226 ''
+    '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map': 1684049596 4564026 f5ae5d834c513e7f4923d5da811dae3b ''
+    '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt': 1683876814 6530462 a8acbf7961a803d3b5f468f2bcc82099 ''
+    '/usr/local/texlive/2023/texmf.cnf': 1682055209 577 1b2b1af17af2508fb20dd85783af4050 ''
+    'chapter1.aux': 1684070217 632 082844e66e2a96974b3e2167aa01d93b 'pdflatex'
+    'chapter1.tex': 1681986130 29 7e35d75008d698e6faf942f5ac9572b9 ''
+    'main.aux': 1684070217 128 d9b8e1618ce2b38600be723bfe9e9034 'pdflatex'
+    'main.bbl': 1684070217 247 c8e3a9c96db3b58b00e2e526ffb78db0 'bibtex main'
+    'main.tex': 1684067220 145 5f9a6c17b5b8493238ca3c42b89e90d7 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  bibtex main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'bibtex main'
+  Make for rule 'pdflatex'
+Make: doing post_primary...
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  bibtex main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Latexmk: All targets () are up-to-date
+Latexmk: Undoing directory change
+

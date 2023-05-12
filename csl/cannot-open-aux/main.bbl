@@ -1,0 +1,15 @@
+\cslsetup{class = in-text}
+
+\cslcitation{ITEM-1@1}{[1]}
+\cslcitation{ITEM-1@2}{[1]}
+\cslcitation{ITEM-1@2}{[1]}
+
+
+
+
+\begin{thebibliography}{index = 1, line-spacing = 1, entry-spacing = 0, widest-label = [1]}
+
+\bibitem[{[1]}]{ITEM-1}
+B. D’Arcus, \textit{Boundaries of dissent: Protest and state power in the media age}. Routledge, 2005.
+
+\end{thebibliography}

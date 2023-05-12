@@ -1,0 +1,777 @@
+Rc files read:
+  /Users/zepinglee/.latexmkrc
+Latexmk: This is Latexmk, John Collins, 4 Apr. 2023. Version 4.80.
+Latexmk: Changing directory to 'csl/success/'
+Set environment variable BIBINPUTS='.:'
+Set environment variable TEXINPUTS='.:'
+Latexmk: Cwd: '/Users/zepinglee/Developer/csl/latexmk/csl/success'
+Latexmk: Normalized aux dir and out dir: '.', '.'
+Latexmk: and combining forms: '', ''
+Given='main.tex', tex='main.tex', base='main', ext= .tex
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  NONE
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Latexmk: Rules after start up for 'main.tex'
+===Rules:
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 1 'main.tex' 'main.pdf' 'main' 0 0
+    'main.aux': 0 -1 0 'pdflatex'
+    'main.tex': 0 -1 0 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  NONE
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Force everything to be remade.
+Latexmk: Rules after initialization
+===Rules:
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 1 'main.tex' 'main.pdf' 'main' 1 0
+    'main.aux': 0 -1 0 'pdflatex'
+    'main.tex': 0 -1 0 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  NONE
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'pdflatex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-05-11>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo))
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-init.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-data.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-cite.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-bib.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-compatible.sty)) (./main.aux)
+No file main.bbl.
+
+LaTeX Warning: Citation `ITEM-1' on page 1 undefined on input line 9.
+
+
+LaTeX Warning: Citation `ITEM-2' on page 1 undefined on input line 11.
+
+
+Package citation-style-language Warning: The bibliography is empty.
+
+[1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on main.pdf (1 page, 22731 bytes).
+SyncTeX written on main.synctex.gz.
+Transcript written on main.log.
+Latexmk: Getting log file 'main.log'
+====Continuing line 28 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 29 of length 79
+e-language.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+====Continuing line 39 of length 79
+Package: citation-style-language 2023-04-12 vv0.4.1 Citation Style Language for
+====Continuing line 58 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 60 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 62 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 67 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 81 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+Latexmk: Examining 'main.fls'
+Latexmk: Examining 'main.log'
+Latexmk: Log file says output to 'main.pdf'
+19 dependent files detected, of which 18 exist, 0 were not found,
+   and 1 appear not to exist.
+Dependents:
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty' 
+   'main.aux'  written by *latex
+   'main.bbl' 
+   'main.tex' 
+Not existent:
+  main.bbl
+Input bbl files:
+  main.bbl
+Possible input files, perhaps from misunderstood lines in .log file:
+  /usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.styPackage:
+  /usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.styPackage: expl3 2023-05-11 L3 programming layer
+  loader
+  max.
+  max. 10000000
+  max. 500000
+  max. 8388607
+=======  Dealing with 'citeproc main'
+Latexmk.kpsewhich: Running 'kpsewhich -format=bib bibfile.json'...
+Latexmk.kpsewhich: 'kpsewhich -format=bib bibfile.json' ==>
+  NONE
+Latexmk.kpsewhich: Running 'kpsewhich -format=tex ieee.csl'...
+Latexmk.kpsewhich: 'kpsewhich -format=tex ieee.csl' ==>
+  /Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl
+Latexmk: Found bibliography file(s):
+  bibfile.json
+Bib file(s) not found in search path:
+  bibfile.json
+   ===Creating rule 'citeproc main'
+  ===Source file 'bibfile.json' for 'citeproc main'
+  ===Source file 'main.aux' for 'citeproc main'
+  ===Source file '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl' for 'citeproc main'
+  ===Source file 'main.bbl' for 'pdflatex'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf.cnf'
+  ===Source file for rule 'pdflatex': 'main.aux'
+  ===Source file for rule 'pdflatex': 'main.bbl'
+  ===Source file for rule 'pdflatex': 'main.tex'
+No new source files for rule 'pdflatex':
+Latexmk: Rules after run: 
+===Rules:
+  [citeproc main]: 'external' 'citeproc-lua %O %S' '' 1 'main.aux' 'main.bbl' 'main' 1 0
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl': 1684121866 15952 88ce3b876c05682a55e5de6820ca52ee ''
+    'bibfile.json': 1684128931 2753 3a387ba1a0b0bbca5f1d105a63c3a8c5 ''
+    'main.aux': 0 -1 0 'pdflatex'
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 0 'main.tex' 'main.pdf' 'main' 0 0
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty': 1684121866 21405 70908b044e3b2b477f2573f98fc644da ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty': 1684121866 17932 600a6fa69577efb4069ad49ac7ffefe3 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty': 1684121866 2634 7d00a2c3334163afb8985d24560335b6 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty': 1684121866 263 eb99fbf3bb84d7948f28d009542174ba ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty': 1684121866 9268 bec11d7d9389136d147c955487a986e9 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty': 1684121866 4286 5512127fa0eab9b2ffdd6cd2525a65f6 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map': 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm': 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb': 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb': 1248133631 35752 024fb6c41858982481f6968b5fc26508 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls': 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo': 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty': 1666814490 9005 c47d9138e4a690658bcefab0dd0af8d7 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty': 1666814490 1210 95c2d0abf75beadf7e7547b73b345c24 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def': 1681935207 29940 9473d58112bc8a88f5505b823a053dde ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty': 1683836049 6107 d78727517d4a4235272375edcb4c4a93 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty': 1675461949 4674 257c150d9d5c2fbc229303c8beaf6228 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty': 1675461949 6812 3c152a1c8d562d7b7291c4839b61a5c3 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty': 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ''
+    '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf': 1681165822 40967 d940221f8762fd5848760382d97d1226 ''
+    '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map': 1684049596 4564026 f5ae5d834c513e7f4923d5da811dae3b ''
+    '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt': 1683876814 6530462 a8acbf7961a803d3b5f468f2bcc82099 ''
+    '/usr/local/texlive/2023/texmf.cnf': 1682055209 577 1b2b1af17af2508fb20dd85783af4050 ''
+    'main.aux': 1684129962 32 3985256e7290058c681f74d7a3565a19 'pdflatex'
+    'main.bbl': 0 -1 0 'citeproc main'
+    'main.tex': 1684128975 194 5407dbd96d3466b1fc5866381ee682e1 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Latexmk: Summary of warnings:
+  Latex failed to resolve 2 citation(s)
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  citeproc main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'citeproc main'
+Latexmk: applying rule 'citeproc main'...
+Rule 'citeproc main':  Reasons for rerun
+Category 'other':
+  Rerun of 'citeproc main' forced or previously required
+
+------------
+Run number 1 of rule 'citeproc main'
+------------
+------------
+Running 'citeproc-lua  "main.aux"'
+------------
+This is citeproc-lua, Version 0.4.1
+The top-level auxiliary file: main.aux
+The style file: ieee.csl
+Database file #1: bibfile.json
+  Make for rule 'pdflatex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  main.aux
+  main.bbl
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-05-11>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo))
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-init.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-data.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-cite.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-bib.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-compatible.sty)) (./main.aux) (./main.bbl) [1{/usr/local/texlive/202
+3/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./main.aux) )</usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (2 pages, 44527 bytes).
+SyncTeX written on main.synctex.gz.
+Transcript written on main.log.
+Latexmk: Getting log file 'main.log'
+====Continuing line 28 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 29 of length 79
+e-language.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+====Continuing line 39 of length 79
+Package: citation-style-language 2023-04-12 vv0.4.1 Citation Style Language for
+====Continuing line 58 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 60 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 62 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 67 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 81 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 113 of length 79
+/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/
+====Continuing line 114 of length 79
+cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm
+Latexmk: Examining 'main.fls'
+Latexmk: Examining 'main.log'
+Latexmk: Found input bbl file 'main.bbl'
+Latexmk: Log file says output to 'main.pdf'
+19 dependent files detected, of which 19 exist, 0 were not found,
+   and 0 appear not to exist.
+Dependents:
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty' 
+   'main.aux'  written by *latex
+   'main.bbl' 
+   'main.tex' 
+Input bbl files:
+  main.bbl
+Possible input files, perhaps from misunderstood lines in .log file:
+  /usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.styPackage:
+  /usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.styPackage: expl3 2023-05-11 L3 programming layer
+  loader
+  max.
+  max. 10000000
+  max. 500000
+  max. 8388607
+=======  Dealing with 'citeproc main'
+Latexmk.kpsewhich: Running 'kpsewhich -format=bib bibfile.json'...
+Latexmk.kpsewhich: 'kpsewhich -format=bib bibfile.json' ==>
+  NONE
+Latexmk.kpsewhich: Running 'kpsewhich -format=tex ieee.csl'...
+Latexmk.kpsewhich: 'kpsewhich -format=tex ieee.csl' ==>
+  /Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl
+Latexmk: Found bibliography file(s):
+  bibfile.json
+Bib file(s) not found in search path:
+  bibfile.json
+  ===Source file 'bibfile.json' for 'citeproc main'
+  ===Source file 'main.aux' for 'citeproc main'
+  ===Source file '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl' for 'citeproc main'
+  ===Source file 'main.bbl' for 'pdflatex'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf.cnf'
+  ===Source file for rule 'pdflatex': 'main.aux'
+  ===Source file for rule 'pdflatex': 'main.bbl'
+  ===Source file for rule 'pdflatex': 'main.tex'
+No new source files for rule 'pdflatex':
+Removing no-longer-needed dependent '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb' from rule 'pdflatex'
+Removing no-longer-needed dependent '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm' from rule 'pdflatex'
+Latexmk: Rules after run: 
+===Rules:
+  [citeproc main]: 'external' 'citeproc-lua %O %S' '' 0 'main.aux' 'main.bbl' 'main' 0 0
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl': 1684121866 15952 88ce3b876c05682a55e5de6820ca52ee ''
+    'bibfile.json': 1684128931 2753 3a387ba1a0b0bbca5f1d105a63c3a8c5 ''
+    'main.aux': 1684129963 323 21f8ed78af0e42f69bd69081f2ff1cb5 'pdflatex'
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 0 'main.tex' 'main.pdf' 'main' 0 0
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty': 1684121866 21405 70908b044e3b2b477f2573f98fc644da ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty': 1684121866 17932 600a6fa69577efb4069ad49ac7ffefe3 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty': 1684121866 2634 7d00a2c3334163afb8985d24560335b6 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty': 1684121866 263 eb99fbf3bb84d7948f28d009542174ba ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty': 1684121866 9268 bec11d7d9389136d147c955487a986e9 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty': 1684121866 4286 5512127fa0eab9b2ffdd6cd2525a65f6 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map': 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm': 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm': 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm': 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb': 1248133631 32080 340ef9bf63678554ee606688e7b5339d ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb': 1248133631 35752 024fb6c41858982481f6968b5fc26508 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb': 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls': 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo': 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty': 1666814490 9005 c47d9138e4a690658bcefab0dd0af8d7 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty': 1666814490 1210 95c2d0abf75beadf7e7547b73b345c24 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def': 1681935207 29940 9473d58112bc8a88f5505b823a053dde ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty': 1683836049 6107 d78727517d4a4235272375edcb4c4a93 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty': 1675461949 4674 257c150d9d5c2fbc229303c8beaf6228 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty': 1675461949 6812 3c152a1c8d562d7b7291c4839b61a5c3 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty': 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ''
+    '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf': 1681165822 40967 d940221f8762fd5848760382d97d1226 ''
+    '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map': 1684049596 4564026 f5ae5d834c513e7f4923d5da811dae3b ''
+    '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt': 1683876814 6530462 a8acbf7961a803d3b5f468f2bcc82099 ''
+    '/usr/local/texlive/2023/texmf.cnf': 1682055209 577 1b2b1af17af2508fb20dd85783af4050 ''
+    'main.aux': 1684129963 323 21f8ed78af0e42f69bd69081f2ff1cb5 'pdflatex'
+    'main.bbl': 1684129964 526 90dd90f1932082f2f95a12f2373e496a 'citeproc main'
+    'main.tex': 1684128975 194 5407dbd96d3466b1fc5866381ee682e1 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  citeproc main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'citeproc main'
+Latexmk: applying rule 'citeproc main'...
+Rule 'citeproc main':  Reasons for rerun
+Changed files or newly in use/created:
+  main.aux
+
+------------
+Run number 2 of rule 'citeproc main'
+------------
+------------
+Running 'citeproc-lua  "main.aux"'
+------------
+This is citeproc-lua, Version 0.4.1
+The top-level auxiliary file: main.aux
+The style file: ieee.csl
+Database file #1: bibfile.json
+  Make for rule 'pdflatex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  main.aux
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder  "main.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-05-11>
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo))
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty)
+(/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty))
+(/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-init.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-data.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-cite.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-bib.sty)
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+e-language-compatible.sty)) (./main.aux) (./main.bbl) [1{/usr/local/texlive/202
+3/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./main.aux) )</usr/local/
+texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/t
+exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (2 pages, 44527 bytes).
+SyncTeX written on main.synctex.gz.
+Transcript written on main.log.
+Latexmk: Getting log file 'main.log'
+====Continuing line 28 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 29 of length 79
+e-language.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+====Continuing line 39 of length 79
+Package: citation-style-language 2023-04-12 vv0.4.1 Citation Style Language for
+====Continuing line 58 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 60 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 62 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 67 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 81 of length 79
+(/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-styl
+====Continuing line 113 of length 79
+/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/
+====Continuing line 114 of length 79
+cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm
+Latexmk: Examining 'main.fls'
+Latexmk: Examining 'main.log'
+Latexmk: Found input bbl file 'main.bbl'
+Latexmk: Log file says output to 'main.pdf'
+19 dependent files detected, of which 19 exist, 0 were not found,
+   and 0 appear not to exist.
+Dependents:
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty' 
+   '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty' 
+   '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty' 
+   'main.aux'  written by *latex
+   'main.bbl' 
+   'main.tex' 
+Input bbl files:
+  main.bbl
+Possible input files, perhaps from misunderstood lines in .log file:
+  /usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.styPackage:
+  /usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.styPackage: expl3 2023-05-11 L3 programming layer
+  loader
+  max.
+  max. 10000000
+  max. 500000
+  max. 8388607
+=======  Dealing with 'citeproc main'
+Latexmk.kpsewhich: Running 'kpsewhich -format=bib bibfile.json'...
+Latexmk.kpsewhich: 'kpsewhich -format=bib bibfile.json' ==>
+  NONE
+Latexmk.kpsewhich: Running 'kpsewhich -format=tex ieee.csl'...
+Latexmk.kpsewhich: 'kpsewhich -format=tex ieee.csl' ==>
+  /Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl
+Latexmk: Found bibliography file(s):
+  bibfile.json
+Bib file(s) not found in search path:
+  bibfile.json
+  ===Source file 'bibfile.json' for 'citeproc main'
+  ===Source file 'main.aux' for 'citeproc main'
+  ===Source file '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl' for 'citeproc main'
+  ===Source file 'main.bbl' for 'pdflatex'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty'
+  ===Source file for rule 'pdflatex': '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt'
+  ===Source file for rule 'pdflatex': '/usr/local/texlive/2023/texmf.cnf'
+  ===Source file for rule 'pdflatex': 'main.aux'
+  ===Source file for rule 'pdflatex': 'main.bbl'
+  ===Source file for rule 'pdflatex': 'main.tex'
+No new source files for rule 'pdflatex':
+Latexmk: Rules after run: 
+===Rules:
+  [citeproc main]: 'external' 'citeproc-lua %O %S' '' 0 'main.aux' 'main.bbl' 'main' 0 0
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/styles/ieee.csl': 1684121866 15952 88ce3b876c05682a55e5de6820ca52ee ''
+    'bibfile.json': 1684128931 2753 3a387ba1a0b0bbca5f1d105a63c3a8c5 ''
+    'main.aux': 1684129964 323 04dd7dfef784a29e77dfefd21c5f0977 'pdflatex'
+  [dvifilter]: 'external' '' 'do_viewfile' 1 'main.dvi' 'main.dviF' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [dvips]: 'external' 'dvips %O -o %D %S' 'do_viewfile' 1 'main.dvi' 'main.ps' 'main' 0 0
+    'main.dvi': 0 -1 0 ''
+  [pdflatex]: 'primary' 'pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1  -recorder %O %S' '' 0 'main.tex' 'main.pdf' 'main' 0 0
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-bib.sty': 1684121866 21405 70908b044e3b2b477f2573f98fc644da ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-cite.sty': 1684121866 17932 600a6fa69577efb4069ad49ac7ffefe3 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-compatible.sty': 1684121866 2634 7d00a2c3334163afb8985d24560335b6 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-data.sty': 1684121866 263 eb99fbf3bb84d7948f28d009542174ba ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language-init.sty': 1684121866 9268 bec11d7d9389136d147c955487a986e9 ''
+    '/Users/zepinglee/Library/texmf/tex/latex/citation-style-language/citation-style-language.sty': 1684121866 4286 5512127fa0eab9b2ffdd6cd2525a65f6 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map': 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm': 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm': 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti10.tfm': 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb': 1248133631 32080 340ef9bf63678554ee606688e7b5339d ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb': 1248133631 35752 024fb6c41858982481f6968b5fc26508 ''
+    '/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb': 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls': 1667332637 23203 3d69f4661dd74a5edb1507ff18e40fb9 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo': 1667332637 8448 c33a4e1cb35cee9b33c2b21033b73e39 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook-2020.sty': 1666814490 9005 c47d9138e4a690658bcefab0dd0af8d7 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/filehook/filehook.sty': 1666814490 1210 95c2d0abf75beadf7e7547b73b345c24 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def': 1681935207 29940 9473d58112bc8a88f5505b823a053dde ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty': 1683836049 6107 d78727517d4a4235272375edcb4c4a93 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty': 1675461949 4674 257c150d9d5c2fbc229303c8beaf6228 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty': 1675461949 6812 3c152a1c8d562d7b7291c4839b61a5c3 ''
+    '/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty': 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ''
+    '/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf': 1681165822 40967 d940221f8762fd5848760382d97d1226 ''
+    '/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map': 1684049596 4564026 f5ae5d834c513e7f4923d5da811dae3b ''
+    '/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt': 1683876814 6530462 a8acbf7961a803d3b5f468f2bcc82099 ''
+    '/usr/local/texlive/2023/texmf.cnf': 1682055209 577 1b2b1af17af2508fb20dd85783af4050 ''
+    'main.aux': 1684129964 323 04dd7dfef784a29e77dfefd21c5f0977 'pdflatex'
+    'main.bbl': 1684129965 526 90dd90f1932082f2f95a12f2373e496a 'citeproc main'
+    'main.tex': 1684128975 194 5407dbd96d3466b1fc5866381ee682e1 ''
+  [print]: 'external' 'lpr %O %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [psfilter]: 'external' '' 'do_viewfile' 1 'main.ps' 'main.psF' 'main' 0 0
+    'main.ps': 0 -1 0 'dvips'
+  [update_view]: 'external' '' 'do_update_view 1 1 0 1' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+  [view]: 'external' 'start open %S' 'if_source' 1 'main.pdf' '' '' 0 0
+    'main.pdf': 0 -1 0 'pdflatex'
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  citeproc main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Make: doing pre_primary and primary...
+  Make for rule 'citeproc main'
+  Make for rule 'pdflatex'
+Make: doing post_primary...
+Rule classification: 
+  Requested rules:
+  pdflatex
+  Pre-primaries:
+  citeproc main
+  Primary:
+  pdflatex
+  Post-primaries:
+  NONE
+  Inner-level one_time rules:
+  NONE
+  Outer-level one_time rules:
+  NONE
+Latexmk: All targets () are up-to-date
+Latexmk: Undoing directory change
+
