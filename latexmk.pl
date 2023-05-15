@@ -558,7 +558,7 @@ $input_extensions{xelatex} = $input_extensions{pdflatex};
 #   bbl files get special treatment because their deletion is conditional
 #       and because of the possibility of extra bibtex/biber rules with
 #       non-standard basename.
-@generated_exts = ( 'aux', 'bcf', 'fls', 'idx', 'ind', 'lof', 'lot', 
+@generated_exts = ( 'aux', 'bcf', 'ccf', 'fls', 'idx', 'ind', 'lof', 'lot', 
                     'out', 'toc',
                     'blg', 'ilg', 'log',
                     'xdv'
@@ -728,9 +728,11 @@ foreach (
 ## Command to invoke biber & bibtex
 $biber  = 'biber %O %S';
 $bibtex  = 'bibtex %O %S';
+$citeproc  = 'citeproc-lua %O %S';
 # Switch(es) to make biber & bibtex silent:
 $biber_silent_switch  = '--onlylog';
 $bibtex_silent_switch  = '-terse';
+$citeproc_silent_switch  = '--quiet';
 $bibtex_use = 1;   # Whether to actually run bibtex to update bbl files.
                    # This variable is also used in deciding whether to
                    #   delete bbl files in clean up operations.
@@ -2493,6 +2495,7 @@ if ( $silent ) {
     add_option( "$xelatex_silent_switch", \$xelatex );
     add_option( "$biber_silent_switch", \$biber );
     add_option( "$bibtex_silent_switch", \$bibtex );
+    add_option( "$citeproc_silent_switch", \$citeproc );
     add_option( "$makeindex_silent_switch", \$makeindex );
     add_option( "$dvipdf_silent_switch", \$dvipdf );
     add_option( "$dvips_silent_switch", \$dvips );
@@ -3319,7 +3322,7 @@ sub fix_cmds {
             $_ = "start $_";
         }
     }
-    foreach ($biber, $bibtex) {
+    foreach ($biber, $bibtex, $citeproc) {
         # Base only
         if ( $_ && ! /%/ ) { $_ .= " %O %B"; }
     }
@@ -3786,7 +3789,7 @@ sub get_small_cleanup {
                if ( $rule =~ /^makeindex/ ) {
                    push @index_bibtex_generated, $$Psource, $$Pdest, "$base.ilg";
                }
-               elsif ( $rule =~ /^(bibtex|biber)/ ) {
+               elsif ( $rule =~ /^(bibtex|biber|citeproc)/ ) {
                    push @index_bibtex_generated, $$Pdest, "$base.blg";
                    push @aux_files, $$Psource;
                    if ( $bibtex_use == 1.5) {
@@ -4773,6 +4776,7 @@ sub print_commands {
        "   To run xelatex, I use \"$xelatex\"\n",
        "   To run biber, I use \"$biber\"\n",
        "   To run bibtex, I use \"$bibtex\"\n",
+       "   To run citeproc, I use \"$citeproc\"\n",
        "   To run makeindex, I use \"$makeindex\"\n",
        "   To make a ps file from a dvi file, I use \"$dvips\"\n",
        "   To make a ps file from a dvi file with landscape format, ",
@@ -5102,6 +5106,71 @@ sub check_bibtex_log {
     if ($have_warning) {return 1;}
     return 0;
 } #END check_bibtex_log
+
+#**************************************************
+
+sub check_citeproc_log {
+    # Check for citeproc warnings:
+    # Usage: check_citeproc_log( base_of_citeproc_run )
+    # return 0: OK, 1: citeproc warnings, 2: citeproc errors,
+    #        3: could not open .blg file.
+    #       10: only error is missing \citation commands or a missing aux file
+    #           (which would normally be corrected after a later run of
+    #           *latex).
+
+    my $base = $_[0];
+    my $blg_name = "$base.blg";
+    open( my $blg_file, "<", $blg_name )
+      or return 3;
+    my $have_warning = 0;
+    my $have_error = 0;
+    my $missing_citations = 0;
+    my @missing_aux = ();
+    my $error_count = 0;
+    while (<$blg_file>) {
+        $_ = utf8_to_mine($_);
+        if (/^Warning:/) {
+            #print "Citeproc-lua warning: $_";
+            $have_warning = 1;
+        }
+        elsif ( /^Error: Couldn\'t open file (.*\.aux)/ ) {
+            push @missing_aux, $1;
+        }
+        elsif ( /^Error: No citation commands in file/ ) {
+            $missing_citations++;
+        }
+        elsif (/There (were|was) (\d+) error message/) {
+            $error_count = $2;
+            #print "Citeproc-lua error: count=$error_count $_";
+            $have_error = 1;
+        }
+    }
+    close $blg_file;
+    my $missing = $missing_citations + $#missing_aux + 1;
+    if ( $#missing_aux > -1 ) {
+        # Need to make the missing files.
+        print "$My_name: One or more aux files is missing for citeproc-lua. I'll try\n",
+             "          to get *latex to remake them.\n";
+        rdb_for_some( [keys %current_primaries], sub{ $$Pout_of_date = 1; } );
+    }
+    #print "Citeproc-lua errors = $error_count, missing aux files and citations = $missing\n";
+    if ($have_error && ($error_count <= $missing )
+        && ($missing > 0) ) {
+        # If the only error is a missing citation line, that should only
+        # count as a warning.
+        # Also a missing aux file should be innocuous; it will be created on
+        # next run of *latex.  ?? HAVE I HANDLED THAT CORRECTLY?
+        # But have to deal with the problem that bibtex gives a non-zero
+        # exit code.  So leave things as they are so that the user gets
+        # a better diagnostic ??????????????????????????
+#        $have_error = 0;
+#        $have_warning = 1;
+        return 10;
+    }
+    if ($have_error) {return 2;}
+    if ($have_warning) {return 1;}
+    return 0;
+} #END check_citeproc_log
 
 #**************************************************
 
@@ -6725,6 +6794,156 @@ AUX_LINE:
 
 #************************************************************
 
+sub parse_csl_aux {
+    # Usage: parse_csl_aux( $aux_file, \@new_bib_files, \@new_aux_files, \@new_csl_files )
+    # Parse aux_file (recursively) for bib files, and csl files.  
+    # If can't open aux file, then
+    #    Return 0 and leave @new_bib_files empty
+    # Else set @new_bib_files and @new_csl_files from information in the
+    #       aux files 
+    #    And:
+    #    Return 1 if no problems
+    #    Return 2 with @new_bib_files empty if there are no \bibdata
+    #      lines. 
+    #    Return 3 if I couldn't locate all the bib_files
+    # Set @new_aux_files to aux files parsed
+
+    my $aux_file = $_[0];
+    local $Pbib_files = $_[1];
+    local $Paux_files = $_[2];
+    local $Pcsl_files = $_[3];
+    # Default return values
+    @$Pbib_files = ();
+    @$Pcsl_files = ();
+    @$Paux_files = ();
+
+
+    # Map file specs (in \csl@aux@data and \csl@aux@style lines) to actual filenames:
+    local %bib_files = ();
+    local %csl_files = ();
+      
+    # Flag bad \bibdata lines in aux files:
+    local @bad_bib_data = ( );
+    # This array contains the offending lines, with trailing space (and
+    # line terminator) removed.  (Currently detected problems: Arguments
+    # containing spaces, which bibtex refuses to accept.)
+
+    parse_csl_aux1( $aux_file );
+    if ($#{$Paux_files} < 0) {
+        # No aux files found/read.
+        return 0;
+    }
+    my @not_found_bib = ();
+    my @not_found_csl = ();
+    find_files( \%bib_files, 'bib', 'bib', $Pbib_files, \@not_found_bib );
+    find_files( \%csl_files, 'tex', '', $Pcsl_files, \@not_found_csl );
+    # ???!!! Should only get one csl file, of course. 
+
+    if ( $#{$Pbib_files} + $#bad_bib_data  == -2 ) {
+        # 
+        print "$My_name: No .bib files listed in .aux file '$aux_file'\n";
+        return 2;
+    }
+
+    show_array( "$My_name: Found bibliography file(s):", @$Pbib_files )
+        unless $silent;
+    if (@not_found_bib) {
+        show_array(
+            "Bib file(s) not found in search path:",
+            @not_found_bib );
+    }
+
+    if (@not_found_csl) {
+        show_array( "$My_name: CSL file not found in search path:", @not_found_csl);
+    }
+    
+
+    if ($#bad_bib_data >= 0)  {
+        warn
+            "$My_name: White space in the argument for \\bibdata line(s) in an .aux file.\n",
+            "   This is caused by the combination of spaces in a \\bibliography line in\n",
+            "   a tex source file and the use of a pre-2018 version of *latex.\n",
+            "   The spaces will give a fatal error when bibtex is used.  Bad lines:\n";
+        foreach (@bad_bib_data ) { s/\s$//; warn "    '$_'\n"; }
+        return 3;
+    }
+    if (@not_found_bib) {
+        if ($force_mode) {
+            warn "$My_name: Failed to find one or more bibliography files in search path.\n";
+            warn "====BUT force_mode is on, so I will continue. There may be problems ===\n";
+        }
+        return 3;
+    }
+    return 1;
+} #END parse_csl_aux
+
+#************************************************************
+
+sub parse_csl_aux1
+# Parse single aux file for bib files.  
+# Usage: &parse_csl_aux1( aux_file_name )
+#   Append newly found names of .bib files to %bib_files, already
+#        initialized/in use.
+#   Append newly found names of .bst files to %bst_files, already
+#        initialized/in use.
+#   Append aux_file_name to @$Paux_files if aux file opened
+#   Recursively check \@input aux files
+#   Return 1 if success in opening $aux_file_name and parsing it
+#   Return 0 if fail to open it
+{
+   my $aux_file = $_[0];
+   my $aux_fh;
+   if (! open($aux_fh, $aux_file) ) { 
+       warn "$My_name: Couldn't find aux file '$aux_file'\n";
+       return 0; 
+   }
+   push @$Paux_files, $aux_file;
+AUX_LINE:
+   while (<$aux_fh>) {
+       $_ = utf8_to_mine($_);
+       s/\s$//;
+       if ( /^\\csl\@aux\@data\{(.*)\}/ ) { 
+           # \\bibdata{comma_separated_list_of_bib_file_names}
+           # This results from a \bibliography command in the document.
+           my $arg = $1;
+           if ($arg =~ /\s/) {
+               # Bibtex will choke when the argument to \bibdata contains
+               # spaces, so flag the error here.
+               # N.B. *latex in TeX Live 2018 and later removes spaces from
+               # the argument to \bibliography before placing it as the
+               # argument to \bibdata in an aux file, so this error only
+               # appears if a *latex from TeX Live 2017 or earlier is used.
+               # Current MiKTeX's *latex (2022) also removes the space.
+               push @bad_bib_data, $_;
+           }
+           else {
+               foreach ( split /,/, $arg ) {
+                   # CSL writes bib files with extension names.
+                   # .json, .yaml, .yaml are also allowed.
+                   # if ( ! /\.bib$/ ) { $_ .= '.bib'; }
+                   $bib_files{$_} = '';
+               }
+           }
+       }
+       elsif ( /^\\csl\@aux\@style\{(.*)\}/ ) { 
+           # \\csl@aux@style{csl_file_name}
+           # Normally without the '.csl' extension.
+           $csl_files{"$1.csl"} = '';
+       }
+       elsif ( /^\\\@input\{(.*)\}/ ) { 
+           # \\@input{next_aux_file_name}
+           &parse_csl_aux1( $aux_dir1.$1 );
+       }
+       else {
+           run_hooks( 'aux_hooks' );
+       }
+   }
+   close($aux_fh);
+   return 1;
+} #END parse_csl_aux1
+
+#************************************************************
+
 sub parse_bcf {
     # Parse bcf file for bib and other source files.  
     # Usage: parse_bcf( $bcf_file, \@new_bib_files )
@@ -7041,7 +7260,7 @@ LINE:
                     next LINE;
                 }
             }
-            elsif ( $rule =~ /^(makeindex|bibtex|biber)\s*(.*)$/ ) {
+            elsif ( $rule =~ /^(makeindex|bibtex|biber|citeproc)\s*(.*)$/ ) {
                 my $PA_extra_gen = [];
                 my $rule_generic = $1;
                 my $int_cmd = '';
@@ -7063,9 +7282,13 @@ LINE:
                         $dest = "$base.bbl";
                         $source = "$base.bcf";
                     }
+                    elsif ($rule_generic eq 'citeproc') {
+                        $dest = "$base.bbl";
+                        $source = "$base.aux";
+                    }
                 }
                 if ($rule =~ /^makeindex/) { $PA_extra_gen = [ "$base.ilg" ]; }
-                if ($rule =~ /^(bibtex|biber)/) { $PA_extra_gen = [ "$base.blg" ]; }
+                if ($rule =~ /^(bibtex|biber|citerproc)/) { $PA_extra_gen = [ "$base.blg" ]; }
                 if ($rule =~ /^bibtex/) { $int_cmd = "run_bibtex"; }
                 if ($rule =~ /^makeindex/) { $int_cmd = "run_makeindex"; }
                 print "$My_name: File-database '$in_name': setting rule '$rule'\n"
@@ -7634,6 +7857,9 @@ sub rdb_set_latex_deps {
         if ( test_gen_file( $bcf_file ) ) {
             $bib_program = 'biber';
         }
+        elsif ( test_gen_file( "$bbl_base.ccf" ) ) {
+            $bib_program = 'citeproc';
+        }
         my $from_rule = "$bib_program $bbl_base";
         print "=======  Dealing with '$from_rule'\n" if ($diagnostics);
         # Don't change to use activation and deactivation here, rather than
@@ -7642,14 +7868,23 @@ sub rdb_set_latex_deps {
         # of .tex source file(s). So activating a previously inactive rule,
         # which is out-of-date, may cause trouble.
         if ($bib_program eq 'biber') {
-            # Remove OPPOSITE kind of bbl generation:
+            # Remove OTHER kinds of bbl generation:
             rdb_remove_rule( "bibtex $bbl_base" );
+            rdb_remove_rule( "citeproc $bbl_base" );
 
             parse_bcf( $bcf_file, \@new_bib_files );
         }
-        else {
-            # Remove OPPOSITE kind of bbl generation:
+        elsif ($bib_program eq 'citeproc') {
+            # Remove OTHER kinds of bbl generation:
+            rdb_remove_rule( "bibtex $bbl_base" );
             rdb_remove_rule( "biber $bbl_base" );
+
+            parse_csl_aux( "$bbl_base.aux", \@new_bib_files, \@new_aux_files, \@new_bst_files );
+        }
+        else {
+            # Remove OTHER kinds of bbl generation:
+            rdb_remove_rule( "biber $bbl_base" );
+            rdb_remove_rule( "citeproc $bbl_base" );
             
             parse_aux( "$bbl_base.aux", \@new_bib_files, \@new_aux_files, \@new_bst_files );
         }
@@ -7659,6 +7894,10 @@ sub rdb_set_latex_deps {
                 rdb_create_rule( $from_rule, 'external', $biber, '', 1,
                                  $bcf_file, $bbl_file, $bbl_base, 1, 0, 0, 1, [ "$bbl_base.blg" ]  );
             }
+        elsif ( $bib_program eq 'citeproc' ) {
+            rdb_create_rule( $from_rule, 'external', $citeproc, '', 1,
+                                "$bbl_base.aux", $bbl_file, $bbl_base, 1, 0, 0, 1, [ "$bbl_base.blg" ]  );
+        }
             else {
                 rdb_create_rule( $from_rule, 'external', $bibtex, 'run_bibtex', 1,
                                   "$bbl_base.aux", $bbl_file, $bbl_base, 1, 0, 0, 1, [ "$bbl_base.blg" ]  );
@@ -7707,7 +7946,7 @@ sub rdb_set_latex_deps {
     }
 
 NEW_SOURCE:
-    foreach my $new_source (keys %dependents) {
+    foreach my $new_source (sort keys %dependents) {
         print "  ===Source file for rule '$rule': '$new_source'\n"
             if ($diagnostics);
         if ( exists $first_read_after_write{$new_source} ) {
@@ -8855,7 +9094,7 @@ sub rdb_make1 {
         #           (and setting to do this test)
         #   2 => don't run bibtex because of setting
     my @missing_bib_files = ();
-    if ( $rule =~ /^(bibtex|biber)/ ) {
+    if ( $rule =~ /^(bibtex|biber|citeproc)/ ) {
         $bibtex_not_run = 0;
         if ($bibtex_use == 0) {
            $bibtex_not_run = 2;
@@ -9172,6 +9411,42 @@ sub rdb_run1 {
                             "    or bibtex found a missing aux file\n";
             if (! -e $$Pdest ) {
                 print "$My_name: Bibtex did not produce '$$Pdest'.  But that\n",
+                     "     was because of missing files, so I will continue.\n";
+                $return = -2;
+            }
+            else {
+                $return = 0;
+            }
+        }
+    }
+    elsif ( $rule =~ /^citeproc/ ) {
+        my $retcode = check_citeproc_log($$Pbase);
+        if ( ! -e $$Psource ) {
+            $retcode = 10;
+            if (!$silent) {
+                print "Source '$$Psource' for '$rule' doesn't exist,\n",
+                    "so I'll force *latex to run to try and make it.\n";
+            }
+            rdb_for_some( [keys %current_primaries], sub{ $$Pout_of_date = 1; } );
+        }
+        if ($retcode == 3) {
+            $$Plast_result = 2;
+            $$Plast_message = "Could not open citeproc log file for '$$Pbase'";
+            push @warnings, $$Plast_message;
+        }
+        elsif ($retcode == 2) {
+            $$Plast_message = "CiteProc errors: See file '$$Pbase.blg'";
+            $failure = 1;
+            push @warnings, $$Plast_message;
+        }
+        elsif ($retcode == 1) {
+            push @warnings, "CiteProc warnings for '$$Pbase'";
+        }
+        elsif ($retcode == 10) {
+            push @warnings, "CiteProc found no citations for '$$Pbase',\n",
+                            "    or bibtex found a missing aux file\n";
+            if (! -e $$Pdest ) {
+                print "$My_name: CiteProc did not produce '$$Pdest'.  But that\n",
                      "     was because of missing files, so I will continue.\n";
                 $return = -2;
             }
